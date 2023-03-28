@@ -10,6 +10,7 @@ public class ViewFactory
 {
     //Client View
     private AnchorPane dashboardView;
+    private AnchorPane transactionsView;
 
     public ViewFactory(){}
 
@@ -19,6 +20,21 @@ public class ViewFactory
             try
             {
                 dashboardView = new FXMLLoader(getClass().getResource("/Fxml/Client/Dashboard.fxml")).load();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return dashboardView;
+    }
+
+    public AnchorPane getTransactionsView() {
+        if(transactionsView == null)
+        {
+            try
+            {
+                transactionsView = new FXMLLoader(getClass().getResource("/Fxml/Client/Transactions.fxml")).load();
             }
             catch(Exception e)
             {
@@ -56,6 +72,10 @@ public class ViewFactory
         stage.setScene(scene);
         stage.setTitle("BankApp");
         stage.show();
+    }
+
+    public void closeStage(Stage stage) {
+        stage.close();
     }
 
 }

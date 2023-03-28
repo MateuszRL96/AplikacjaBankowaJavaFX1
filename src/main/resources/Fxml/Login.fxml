@@ -35,7 +35,7 @@
       <TextField fx:id="payee_address_fld" styleClass="input_field"/>
       <Label text="Hasło:"/>
       <TextField fx:id="password_fld" styleClass="input_field"/>
-      <Button fx:id="login_btn" mnemonicParsing="false" text="Button"/>
-      <Label fx:id="error_lbl" styleClass="error_label" text="Error"/>
+      <Button fx:id="login_btn" mnemonicParsing="false" text="Login"/>
+      <Label fx:id="error_lbl" styleClass="error_label"/>
    </VBox>
 </AnchorPane>
