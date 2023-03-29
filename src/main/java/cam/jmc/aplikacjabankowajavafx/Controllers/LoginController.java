@@ -1,6 +1,8 @@
 package cam.jmc.aplikacjabankowajavafx.Controllers;
 
 import cam.jmc.aplikacjabankowajavafx.Models.Model;
+import cam.jmc.aplikacjabankowajavafx.Views.AccountType;
+import javafx.collections.FXCollections;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -16,11 +18,14 @@ public class LoginController implements Initializable {
     public TextField password_fld;
     public Button login_btn;
     public Label payee_address_lbl;
-    public ChoiceBox acc_selector;
+    public ChoiceBox<AccountType> acc_selector;
     public Label error_lbl;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        acc_selector.setItems(FXCollections.observableArrayList(AccountType.CLIENT, AccountType.ADMIN));
+        acc_selector.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
+        acc_selector.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_selector.getValue()));
         login_btn.setOnAction(event-> onLogin());
     }
 
@@ -28,6 +33,13 @@ public class LoginController implements Initializable {
     {
         Stage stage = (Stage) error_lbl.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showClientWindow();
+        if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT)
+        {
+            Model.getInstance().getViewFactory().showClientWindow();
+        }
+        else
+        {
+            Model.getInstance().getViewFactory().showAdminWindow();
+        }
     }
 }

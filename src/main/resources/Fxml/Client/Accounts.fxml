@@ -8,55 +8,41 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="accounts_view_container"
-            stylesheets="@../../Styles/accounts.css" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="cam.jmc.aplikacjabankowajavafx.Controllers.Client.AccountsController">
-   <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checking Account"
-         AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0"/>
-   <VBox layoutX="14.0" layoutY="30.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.leftAnchor="14.0"
-         AnchorPane.topAnchor="30.0">
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number"/>
-      <Label fx:id="checking_account_number" text="3534 4568"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions Limit"/>
-      <Label fx:id="transaction_limit" text="10"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created"/>
-      <Label fx:id="checking_account_date" text="2023-03-29"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:"/>
-      <Label fx:id="checking_account_balance" text="\$3,000.00"/>
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="accounts_view_container" stylesheets="@../../Styles/accounts.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.jmc.aplikacjabankowajavafx.Controllers.Client.AccountsController">
+   <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checking Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+   <VBox layoutX="14.0" layoutY="30.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="30.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number" />
+      <Label fx:id="checking_account_number" text="3534 4568" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions Limit" />
+      <Label fx:id="transaction_limit" text="10" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created" />
+      <Label fx:id="checking_account_date" text="2023-03-29" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:" />
+      <Label fx:id="checking_account_balance" text="\$3,000.00" />
    </VBox>
-   <Text layoutX="39.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Savings Account"
-         AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="364.0"/>
-   <VBox layoutX="21.0" layoutY="389.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.bottomAnchor="60.0"
-         AnchorPane.leftAnchor="14.0">
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number"/>
-      <Label fx:id="saving_account_number" text="3534 4568"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Withdrawal Limit:"/>
-      <Label fx:id="withdraw_limit" text="\$2,000"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created"/>
-      <Label fx:id="saving_account_date" text="2023-03-29"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:"/>
-      <Label fx:id="saving_balance" text="\$14,000.00"/>
+   <Text layoutX="39.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Savings Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="364.0" />
+   <VBox layoutX="21.0" layoutY="389.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="14.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number" />
+      <Label fx:id="saving_account_number" text="3534 4568" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Withdrawal Limit:" />
+      <Label fx:id="withdraw_limit" text="\$2,000" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created" />
+      <Label fx:id="saving_account_date" text="2023-03-29" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:" />
+      <Label fx:id="saving_balance" text="\$14,000.00" />
    </VBox>
-   <Text layoutX="587.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Move Funds to Savings Account"
-         AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="38.0"/>
-   <TextField fx:id="amount_to_savings" layoutX="471.0" layoutY="68.0" prefHeight="25.0" prefWidth="214.0"
-              AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="72.0"/>
-   <Button fx:id="trans_to_saving_button" layoutX="471.0" layoutY="123.0" mnemonicParsing="false" prefHeight="25.0"
-           prefWidth="214.0" text="Transfer" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="123.0">
+   <Text layoutX="587.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Move Funds to Savings Account" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="38.0" />
+   <TextField fx:id="amount_to_savings" layoutX="471.0" layoutY="68.0" prefHeight="25.0" prefWidth="214.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="72.0" />
+   <Button fx:id="trans_to_saving_button" layoutX="471.0" layoutY="123.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Transfer" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="123.0">
       <graphic>
-         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="20"/>
+         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="20" />
       </graphic>
    </Button>
-   <Text layoutX="464.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Move Funds to Savings Account"
-         AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="364.0"/>
-   <TextField fx:id="amount_to_checking" layoutX="472.0" layoutY="390.0" prefHeight="25.0" prefWidth="214.0"
-              AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="392.0"/>
-   <Button fx:id="transfer_to_checking_button" layoutX="472.0" layoutY="431.0" mnemonicParsing="false" prefHeight="25.0"
-           prefWidth="214.0" text="Transfer" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="441.0">
+   <Text layoutX="464.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Move Funds to Savings Account" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="364.0" />
+   <TextField fx:id="amount_to_checking" layoutX="472.0" layoutY="390.0" prefHeight="25.0" prefWidth="214.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="392.0" />
+   <Button fx:id="transfer_to_checking_button" layoutX="472.0" layoutY="431.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Transfer" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="441.0">
       <graphic>
-         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_UP" size="20"/>
+         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_UP" size="20" />
       </graphic>
    </Button>
 </AnchorPane>
