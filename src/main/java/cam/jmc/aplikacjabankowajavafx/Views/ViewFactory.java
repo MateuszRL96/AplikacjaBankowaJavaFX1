@@ -1,6 +1,8 @@
 package cam.jmc.aplikacjabankowajavafx.Views;
 
 import cam.jmc.aplikacjabankowajavafx.Controllers.Client.ClientController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.Scene;
@@ -9,10 +11,17 @@ import javafx.stage.Stage;
 public class ViewFactory
 {
     //Client View
+    private final StringProperty clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionsView;
 
-    public ViewFactory(){}
+    public ViewFactory(){
+        this.clientSelectedMenuItem = new SimpleStringProperty("");
+    }
+
+    public StringProperty getClientSelectedMenuItem() {
+        return clientSelectedMenuItem;
+    }
 
     public AnchorPane getDashboardView() {
         if(dashboardView == null)
@@ -41,7 +50,7 @@ public class ViewFactory
                 e.printStackTrace();
             }
         }
-        return dashboardView;
+        return transactionsView;
     }
 
     public void showLoginWindow() {
