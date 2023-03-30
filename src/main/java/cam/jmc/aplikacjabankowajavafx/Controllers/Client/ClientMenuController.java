@@ -40,4 +40,5 @@ public class ClientMenuController implements Initializable {
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOptions.ACCOUNTS);
     }
 
+
 }

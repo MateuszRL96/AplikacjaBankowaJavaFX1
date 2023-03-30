@@ -2,6 +2,7 @@ package cam.jmc.aplikacjabankowajavafx.Controllers.Admin;
 
 import cam.jmc.aplikacjabankowajavafx.Models.Model;
 import cam.jmc.aplikacjabankowajavafx.Views.AdminMenuOptions;
+import cam.jmc.aplikacjabankowajavafx.Views.ClientMenuOptions;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
@@ -20,10 +21,20 @@ public class AdminMenuController implements Initializable {
     }
 
     private void addListeners() {
-
+        create_clients_button.setOnAction(event -> onCreateClient());
+        clients_button.setOnAction(event -> onClients());
+        deposit_button.setOnAction(event-> onDeposit());
     }
 
     private void onCreateClient() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CREATE_CLIENT);
+    }
+
+    private void onClients() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CLIENTS);
+    }
+
+    private void onDeposit() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.DEPOSIT);
     }
 }

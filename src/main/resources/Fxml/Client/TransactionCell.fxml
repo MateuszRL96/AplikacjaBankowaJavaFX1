@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+
+<AnchorPane prefHeight="60.0" prefWidth="550.0" styleClass="cell_container"
+            stylesheets="@../../Styles/TransactionCell.css" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cam.jmc.aplikacjabankowajavafx.Controllers.Client.TransactionCellController">
+   <VBox prefHeight="50.0" prefWidth="50.0" styleClass="trans_icon_container" AnchorPane.bottomAnchor="5.0"
+         AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="5.0">
+      <FontAwesomeIconView fx:id="in_icon" glyphName="LONG_ARROW_RIGHT" size="17"/>
+      <FontAwesomeIconView fx:id="out_icon" glyphName="LONG_ARROW_LEFT" size="17"/>
+   </VBox>
+   <Label fx:id="transaction_date_label" layoutX="101.0" layoutY="22.0" styleClass="trans_date_label" text="2023-03-30"
+          AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="22.0"/>
+   <Label fx:id="sender_label" layoutX="209.0" layoutY="22.0" styleClass="trans_pAddress_label" text="Mateusz"
+          AnchorPane.leftAnchor="209.0" AnchorPane.topAnchor="22.0"/>
+   <Line endY="20.0" layoutX="307.0" layoutY="20.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="20.0"/>
+   <Label fx:id="receiver_label" layoutX="368.0" layoutY="22.0" styleClass="trans_pAddress_label" text="Marcin"
+          AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="22.0"/>
+   <Label fx:id="amount_label" layoutX="487.0" layoutY="17.0" styleClass="trans_amount_label" text="2000"
+          AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="17.0">
+      <graphic>
+         <FontAwesomeIconView glyphName="DOLLAR"/>
+      </graphic>
+   </Label>
+</AnchorPane>

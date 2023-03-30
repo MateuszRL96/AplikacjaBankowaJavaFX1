@@ -30,7 +30,7 @@
    <VBox layoutX="332.0" layoutY="88.0" prefHeight="350.0" prefWidth="350.0" styleClass="login_form_container"
          AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
       <Label id="choice-prompt-text" text="Wybierz typ Konta"/>
-      <ChoiceBox fx:id="acc_selector" prefWidth="150.0" styleClass="account_selector"/>
+      <ChoiceBox fx:id="acc_selector" prefWidth="100.0" styleClass="account_selector"/>
       <Label fx:id="payee_address_lbl" text="Payee Adress:"/>
       <TextField fx:id="payee_address_fld" styleClass="input_field"/>
       <Label text="Hasło:"/>
