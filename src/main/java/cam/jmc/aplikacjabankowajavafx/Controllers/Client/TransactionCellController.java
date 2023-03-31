@@ -1,5 +1,6 @@
 package cam.jmc.aplikacjabankowajavafx.Controllers.Client;
 
+import cam.jmc.aplikacjabankowajavafx.Models.Transaction;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -15,6 +16,13 @@ public class TransactionCellController implements Initializable {
     public Label sender_label;
     public Label receiver_label;
     public Label amount_label;
+
+    private final Transaction transaction;
+
+    public TransactionCellController(Transaction transaction)
+    {
+        this.transaction = transaction;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
