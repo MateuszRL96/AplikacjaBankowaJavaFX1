@@ -1,13 +1,29 @@
 package cam.jmc.aplikacjabankowajavafx.Models;
 
+import cam.jmc.aplikacjabankowajavafx.Views.AccountType;
 import cam.jmc.aplikacjabankowajavafx.Views.ViewFactory;
+
+import java.sql.ResultSet;
 
 public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
+    private final DatabaseDriver databaseDriver;
+    private AccountType loginAccountType = AccountType.CLIENT;
+
+    // Client Data Section
+    private Client client;
+    private boolean clientLoginSuccessFlag;
+
+    //Admin Data Section
 
     private Model() {
         this.viewFactory = new ViewFactory();
+        this.databaseDriver = new DatabaseDriver();
+        //Client Data Section
+        this.clientLoginSuccessFlag = false;
+        this.client = new Client("", "", "", null, null, null);
+        //Admin Data Section
     }
 
     public static synchronized Model getInstance() {
@@ -21,4 +37,45 @@ public class Model {
     public ViewFactory getViewFactory() {
         return viewFactory;
     }
+    public DatabaseDriver getDatabaseDriver() {
+        return databaseDriver;
+    }
+
+    public AccountType getLoginAccountType() {
+        return loginAccountType;
+    }
+
+    public void setLoginAccountType(AccountType loginAccountType) {
+        this.loginAccountType = loginAccountType;
+    }
+
+
+    /*
+    Client Method Section
+     */
+    public boolean getClientLoginSuccessFlag() {
+        return this.clientLoginSuccessFlag;
+    }
+    public void setClientLoginSuccessFlag(boolean flag) {
+        this.clientLoginSuccessFlag = flag;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void evaluateClientCred(String pAddress, String password) {
+        CheckingAccount checkingAccount;
+        SavingsAccount savingsAccount;
+        ResultSet resultSet = databaseDriver.getClientData(pAddress, password);
+        try {
+
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
 }
