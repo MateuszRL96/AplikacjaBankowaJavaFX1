@@ -25,21 +25,48 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         acc_selector.setItems(FXCollections.observableArrayList(AccountType.CLIENT, AccountType.ADMIN));
         acc_selector.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
-        acc_selector.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_selector.getValue()));
-        login_btn.setOnAction(event-> onLogin());
+        acc_selector.valueProperty().addListener(observable -> setAcc_selector());
+        login_btn.setOnAction(event -> onLogin());
     }
 
-    private void onLogin()
-    {
+    private void onLogin() {
         Stage stage = (Stage) error_lbl.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
-        if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT)
+        if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT) {
+            // Evaluate Client Login Credentials
+            Model.getInstance().evaluateClientCred(payee_address_fld.getText(), password_fld.getText());
+            if (Model.getInstance().getClientLoginSuccessFlag()) {
+                Model.getInstance().getViewFactory().showClientWindow();
+                // Close the login stage
+                Model.getInstance().getViewFactory().closeStage(stage);
+            } else {
+                payee_address_fld.setText("");
+                password_fld.setText("");
+                error_lbl.setText("No Such Login Credentials.");
+            }
+        } else {
+            // Evaluate Admin Login Credentials
+            Model.getInstance().evaluateAdminCred(payee_address_fld.getText(), password_fld.getText());
+            if (Model.getInstance().getAdminLoginSuccessFlag()) {
+                Model.getInstance().getViewFactory().showAdminWindow();
+                // Close the login stage
+                Model.getInstance().getViewFactory().closeStage(stage);
+            } else {
+                payee_address_fld.setText("");
+                password_fld.setText("");
+                error_lbl.setText("No Such Login Credentials");
+            }
+        }
+    }
+
+    private void setAcc_selector() {
+        Model.getInstance().getViewFactory().setLoginAccountType(acc_selector.getValue());
+        if (acc_selector.getValue() == AccountType.ADMIN)
         {
-            Model.getInstance().getViewFactory().showClientWindow();
+            payee_address_lbl.setText("Username:");
         }
         else
         {
-            Model.getInstance().getViewFactory().showAdminWindow();
+            payee_address_lbl.setText("Payee Address:");
         }
     }
 }

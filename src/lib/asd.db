@@ -1,5 +1,5 @@
 
-CREATE TABLE Admins (
+CREATE TABLE admins (
 	ID	INTEGER NOT NULL,
 	Username	TEXT NOT NULL,
 	Password	TEXT NOT NULL,

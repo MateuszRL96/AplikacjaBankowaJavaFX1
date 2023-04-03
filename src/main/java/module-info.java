@@ -3,7 +3,8 @@ module cam.jmc.aplikacjabankowajavafx {
     requires javafx.fxml;
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
-    requires org.xerial.sqlitejdbc;
+    //requires org.xerial.sqlitejdbc;
+    requires javafx.graphics;
 
 
 
