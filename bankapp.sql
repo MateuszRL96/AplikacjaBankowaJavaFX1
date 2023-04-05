@@ -51,6 +51,7 @@ INSERT INTO Clients (ID, FirstName, LastName, PayeeAddress, Password, Date) VALU
 INSERT INTO Clients (ID, FirstName, LastName, PayeeAddress, Password, Date) VALUES (6, 'Paul', 'Miller', '@pMiller6', '123456', '2022-07-09');
 INSERT INTO Clients (ID, FirstName, LastName, PayeeAddress, Password, Date) VALUES (7, 'Adam', 'Jonhson', '@aJonhson7', '123456', '2022-07-11');
 INSERT INTO Clients (ID, FirstName, LastName, PayeeAddress, Password, Date) VALUES (8, 'James', 'Peters', '@jPeters8', '123456', '2022-07-15');
+INSERT INTO Clients (ID, FirstName, LastName, PayeeAddress, Password, Date) VALUES (9, 'Mateusz', 'Kulec', '@mkulec', '1234', '2022-07-15');
 
 -- Table: SavingsAccounts
 CREATE TABLE IF NOT EXISTS "SavingsAccounts" (
@@ -69,6 +70,7 @@ INSERT INTO SavingsAccounts (ID, Owner, AccountNumber, WithdrawalLimit, Balance)
 INSERT INTO SavingsAccounts (ID, Owner, AccountNumber, WithdrawalLimit, Balance) VALUES (6, '@pMiller6', '3201 2378', 2000.0, 40500.0);
 INSERT INTO SavingsAccounts (ID, Owner, AccountNumber, WithdrawalLimit, Balance) VALUES (7, '@aJonhson7', '3201 4053', 2000.0, 2500.0);
 INSERT INTO SavingsAccounts (ID, Owner, AccountNumber, WithdrawalLimit, Balance) VALUES (8, '@jPeters8', '3201 4152', 2000.0, 2311.56);
+
 
 -- Table: Transactions
 CREATE TABLE IF NOT EXISTS "Transactions" (
