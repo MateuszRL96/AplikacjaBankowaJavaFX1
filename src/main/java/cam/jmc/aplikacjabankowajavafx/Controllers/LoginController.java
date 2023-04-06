@@ -40,7 +40,8 @@ import java.util.ResourceBundle;
                     {
                         // Evaluate Client Login Credentials
                         Model.getInstance().evaluateClientCred(payee_address_fld.getText(), password_fld.getText());
-                        if (Model.getInstance().getClientLoginSuccessFlag()) {
+                        if (Model.getInstance().getClientLoginSuccessFlag())
+                        {
                             Model.getInstance().getViewFactory().showClientWindow();
                             // Close the login stage
                             Model.getInstance().getViewFactory().closeStage(stage);
@@ -51,10 +52,12 @@ import java.util.ResourceBundle;
                             password_fld.setText("");
                             error_lbl.setText("No Such Login Credentials.");
                         }
-                    } else
+                    }
+                    else
                     {
                         Model.getInstance().evaluateAdminCred(payee_address_fld.getText(), password_fld.getText());
-                        if (Model.getInstance().getAdminLoginSuccessFlag()) {
+                        if (Model.getInstance().getAdminLoginSuccessFlag())
+                        {
                             Model.getInstance().getViewFactory().showAdminWindow();
                             // Close the login stage
                             Model.getInstance().getViewFactory().closeStage(stage);
