@@ -3,6 +3,8 @@ package cam.jmc.aplikacjabankowajavafx.Models;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+
+
 public class CheckingAccount extends Account{
     //The Number of transactions a client is allowed to do per day;
     private final IntegerProperty transactionLimit;
@@ -15,6 +17,11 @@ public class CheckingAccount extends Account{
 
     public IntegerProperty transactionLimitProperty() {
         return transactionLimit;
+    }
+
+    @Override
+    public String toString() {
+        return accountNumberProperty().get();
     }
 
 }
