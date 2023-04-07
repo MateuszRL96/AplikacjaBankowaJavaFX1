@@ -20,6 +20,12 @@ public class DatabaseDriver {
         }
     }
 
+
+
+    //----------------------------------- C L I E N T -- S E C T I O N ------------------------------------------------>
+
+
+
     public ResultSet getClientData(String pAddress, String password) {
         Statement statement;
         ResultSet resultSet = null;
@@ -31,7 +37,26 @@ public class DatabaseDriver {
         }
         return resultSet;
     }
+
+    public ResultSet getTransactions(String pAddress, int limit){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Transactions WHERE Sender='"+pAddress+"' OR Receiver='"+pAddress+"' LIMIT "+limit+";");
+        }
+        catch(SQLException e){
+            //System.out.println("error");
+             e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
+
     //------------------------------------- A D M I N -- S E C T I O N ------------------------------------------------>
+
+
 
     public ResultSet getAdminData(String username, String password)
     {

@@ -19,8 +19,7 @@ public class TransactionCellController implements Initializable {
 
     private final Transaction transaction;
 
-    public TransactionCellController(Transaction transaction)
-    {
+    public TransactionCellController(Transaction transaction){
         this.transaction = transaction;
     }
 
