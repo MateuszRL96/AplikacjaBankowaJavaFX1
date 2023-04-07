@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -49,5 +50,26 @@ public class DashboardController implements Initializable {
         if(Model.getInstance().getLatestTransactions().isEmpty()){
            Model.getInstance().setLatestTransactions();
         }
+    }
+
+    private void onSendMoney()
+    {
+        String receiver = payee_field.getText();
+        double amount = Double.parseDouble(amount_field.getText());
+        String message = message_field.getText();
+        String sender = Model.getInstance().getClient().payeeAddressProperty().get();
+        ResultSet resultSet = Model.getInstance().getDatabaseDriver().searchClient(receiver);
+        try{
+            if(resultSet.isBeforeFirst()){
+                Model.getInstance().getDatabaseDriver().updateBalance(receiver, amount, "ADD");
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        //Subtract from sender's savings account
+        Model.getInstance().getDatabaseDriver().updateBalance(sender, amount, "SUB");
+        
+
     }
 }

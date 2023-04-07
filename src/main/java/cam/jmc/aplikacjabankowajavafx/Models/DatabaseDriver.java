@@ -52,6 +52,68 @@ public class DatabaseDriver {
         return resultSet;
     }
 
+    //----------------------------------METHOD--RETURNS--SAVINGS--ACCOUNT--BALANCE ------------------------------------>
+
+    public double getSavingsAccountBalance(String pAddress){
+        Statement statement;
+        ResultSet resultSet;
+        double balance = 0;
+        try{
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM SavingsAccount WHERE Owner ='"+pAddress+"';");
+            balance = resultSet.getDouble("Balance");
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return balance;
+    }
+
+
+    //---------------------METHOD--TO--EITHER--ADD--OR--SUBTRACT--FROM--BALANCE--GIVEN--OPERATION --------------------->
+
+    public void updateBalance(String pAddress, double amount, String operation){
+        Statement statement;
+        ResultSet resultSet;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM SavingsAccounts WHERE Owner='"+pAddress+"';");
+            double newBalance;
+            if(operation.equals("ADD"))
+            {
+                newBalance = resultSet.getDouble("Balance") + amount;
+                statement.executeUpdate("UPDATE SavingsAccounts SET Balance ="+newBalance+" WHERE Owner='"+pAddress+"';");
+            }
+            else
+            {
+                if(resultSet.getDouble("Balance") >= amount)
+                {
+                    newBalance = resultSet.getDouble("Balance") - amount;
+                    statement.executeUpdate("UPDATE SavingsAccounts SET Balance ="+newBalance+" WHERE Owner='"+pAddress+"';");
+                }
+            }
+            //statement.executeUpdate("UPDATE SavingsAccounts SET Balance ="+newBalance+" WHERE Owner='"+pAddress+"';");
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    //----------------------------------CREATE--AND--RECORDS--NEW--TRANSACTION----------------------------------------->
+
+    public void newTransaction(String sender, String receiver, double amount, String message){
+        Statement statement;
+        try {
+            statement = this.conn.createStatement();
+            LocalDate date = LocalDate.now();
+            statement.executeUpdate("INSERT INTO " +
+                    "Transaction(Sender, Receiver, Amount, Date, Message) " +
+                    "VALUES ('"+sender+"', '"+receiver+"', '"+amount+"', '"+date+"', '"+message+"',");
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
 
 
     //------------------------------------- A D M I N -- S E C T I O N ------------------------------------------------>
@@ -126,18 +188,7 @@ public class DatabaseDriver {
         return resultSet;
     }
 
-    public ResultSet searchClient(String pAddress) {
-        Statement statement;
-        ResultSet resultSet = null;
-        try {
-            statement = this.conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Clients WHERE PayeeAddress = '"+pAddress+"';");
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
+
 
     public void depositSavings(String pAddress, double amount) {
         Statement statement;
@@ -153,6 +204,20 @@ public class DatabaseDriver {
 
 
     //-----------------------------------U T I L I T Y -- M E T H O D S ----------------------------------------------->
+
+
+    public ResultSet searchClient(String pAddress) {
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Clients WHERE PayeeAddress = '"+pAddress+"';");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
 
         public int getLastClientId() {
             Statement statement;
