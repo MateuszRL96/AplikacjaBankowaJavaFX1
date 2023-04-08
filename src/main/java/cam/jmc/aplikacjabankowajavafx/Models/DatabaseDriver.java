@@ -60,7 +60,7 @@ public class DatabaseDriver {
         double balance = 0;
         try{
             statement = this.conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM SavingsAccount WHERE Owner ='"+pAddress+"';");
+            resultSet = statement.executeQuery("SELECT * FROM SavingsAccounts WHERE Owner ='"+pAddress+"';");
             balance = resultSet.getDouble("Balance");
         }
         catch(SQLException e){
@@ -107,8 +107,8 @@ public class DatabaseDriver {
             statement = this.conn.createStatement();
             LocalDate date = LocalDate.now();
             statement.executeUpdate("INSERT INTO " +
-                    "Transaction(Sender, Receiver, Amount, Date, Message) " +
-                    "VALUES ('"+sender+"', '"+receiver+"', '"+amount+"', '"+date+"', '"+message+"',");
+                    "Transactions (Sender, Receiver, Amount, Date, Message) " +
+                    "VALUES ('"+sender+"', '"+receiver+"', "+amount+", '"+date+"', '"+message+"');");
         }
         catch(SQLException e){
             e.printStackTrace();

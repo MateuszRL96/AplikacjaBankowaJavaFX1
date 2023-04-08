@@ -35,6 +35,7 @@ public class DashboardController implements Initializable {
         initLatestTransactionsList();
         transaction_listview.setItems(Model.getInstance().getLatestTransactions());
         transaction_listview.setCellFactory(e -> new TransactionCellFactory());
+        send_money_btn.setOnAction(event-> onSendMoney());
     }
 
     private void bindData() {
@@ -69,7 +70,16 @@ public class DashboardController implements Initializable {
         }
         //Subtract from sender's savings account
         Model.getInstance().getDatabaseDriver().updateBalance(sender, amount, "SUB");
-        
 
+        //update the savings account balance in the client
+        Model.getInstance().getClient().savingsAccountProperty().get().setBalance(Model.getInstance().getDatabaseDriver().getSavingsAccountBalance(sender));
+
+        //Record new transaction
+        Model.getInstance().getDatabaseDriver().newTransaction(sender, receiver, amount, message);
+
+        //Clear the fields
+        payee_field.setText("");
+        amount_field.setText("");
+        message_field.setText("");
     }
 }

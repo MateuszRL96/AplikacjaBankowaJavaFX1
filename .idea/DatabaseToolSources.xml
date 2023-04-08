@@ -61,7 +61,7 @@
           </node>
         </introspection-scope>
       </schema-mapping>
-      <url>jdbc:mysql://localhost:3306/test?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw</url>
+      <url>jdbc:mysql://localhost:3306/test?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw?useSSL=false&amp;serverTimezone=Europe/Warsaw</url>
       <remarks />
       <driver-info id="mysql5" />
       <ssh-properties enabled="false" />
