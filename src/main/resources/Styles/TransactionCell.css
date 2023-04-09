@@ -25,6 +25,14 @@
     -fx-stroke: #EEEEEE;
 }
 
+.message_btn {
+    -fx-background-color: #FFFFFF;
+}
+
+.message_btn FontAwesomeIconView {
+    -fx-fill: #132A13;
+}
+
 .trans_amount_label {
     -fx-background-color: #132A13;
     -fx-background-radius: 2;
